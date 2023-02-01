@@ -1,0 +1,14 @@
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/jwt/JwtAuthFilter.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/entity/UserDetailsImp.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/AuthApplication.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/controller/AuthController.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/repo/UserRepository.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/entity/UserRoles.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/service/UserService.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/payload/SignUp.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/config/WebConfig.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/config/SecurityConfig.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/payload/Login.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/jwt/JwtUtils.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/entity/User.java
+/Users/tiqbal/Spring-java/auth/src/main/java/com/brotech/auth/controller/AuthTestController.java
