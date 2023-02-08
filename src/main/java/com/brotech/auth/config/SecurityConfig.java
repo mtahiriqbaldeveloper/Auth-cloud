@@ -27,13 +27,8 @@ public class SecurityConfig {
                     auth.antMatchers("/auth/**").permitAll()
                             .anyRequest().authenticated();
                 })
-
                 .exceptionHandling(ex -> {
-
-                    ex.authenticationEntryPoint(((request, response, authException) -> {
-                        System.out.println("authenticaion is failed");
-                        new AccessDeniedException().onAuthenticationFailure(request, response, authException);
-                    }));
+                    ex.authenticationEntryPoint(((request, response, authException) -> new AccessDeniedException().onAuthenticationFailure(request, response, authException)));
                 });
         httpSecurity.addFilterBefore(jwtAuthFilter(), UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();

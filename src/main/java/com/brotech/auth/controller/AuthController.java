@@ -19,7 +19,7 @@ import java.util.logging.Logger;
 @Controller
 @RestController
 @RequestMapping(path = "/auth/")
-@CrossOrigin("http://localhost:3002/")
+@CrossOrigin("http://localhost:3000/")
 public class AuthController {
 
     private final UserService userService;
@@ -49,16 +49,12 @@ public class AuthController {
         logger.info(signUp.toString());
         if (userService.userExists(signUp)) {
             logger.info("user already exists");
-            return new ResponseEntity("user already exists", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity("EXISTS", HttpStatus.BAD_REQUEST);
+        }else {
+            userService.regiserUser(signUp);
+            return new ResponseEntity("SUCCESS",HttpStatus.ACCEPTED);
         }
-        return ResponseEntity.ok(userService.regiserUser(signUp).toString());
     }
 
-
-    @GetMapping(path = "helloworld")
-    public String helloWorld() {
-
-        return "hello-world";
-    }
 
 }

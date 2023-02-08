@@ -37,6 +37,7 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean userExists(SignUp signUp) {
+
         if (userRepository.findByEmail(signUp.getEmail()).isPresent()) {
             return true;
         }
@@ -45,7 +46,6 @@ public class UserService implements UserDetailsService {
 
     @Transactional
     public User regiserUser(SignUp signUp) {
-
         signUp.setPassword(passwordEncoder.encode(signUp.getPassword()));
         User user = userRepository.save(new User(signUp));
         return user;
