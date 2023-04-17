@@ -14,6 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.concurrent.CompletableFuture;
 import java.util.logging.Logger;
 
 @Controller
@@ -40,19 +42,20 @@ public class AuthController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String token = jwtUtils.generateJwtToken(authentication);
         logger.info(token);
-        return ResponseEntity.ok(token);
+        return new ResponseEntity<>(token,HttpStatus.OK);
+
     }
 
     @PostMapping("register")
-    public ResponseEntity registerUser(@RequestBody SignUp signUp) {
+    public ResponseEntity<String> registerUser(@RequestBody SignUp signUp) {
 
         logger.info(signUp.toString());
         if (userService.userExists(signUp)) {
             logger.info("user already exists");
-            return new ResponseEntity("EXISTS", HttpStatus.BAD_REQUEST);
-        }else {
+            return new ResponseEntity<>("EMAIL ALREADY EXISTS", HttpStatus.BAD_REQUEST);
+        } else {
             userService.regiserUser(signUp);
-            return new ResponseEntity("SUCCESS",HttpStatus.ACCEPTED);
+            return new ResponseEntity<>("SUCCESS", HttpStatus.OK);
         }
     }
 
